@@ -1,3 +1,11 @@
 body {
   
 }
+
+.wordSelected-true {
+  color: blue;
+}
+
+.wordSelected-false {
+  color: red;
+}

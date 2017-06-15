@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
-import filler from './defaultReducer';
+import input from './inputReducer';
+
 
 const rootReducer = combineReducers({
-  filler: filler
+  input
 });
 
 export default rootReducer;
