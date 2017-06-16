@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import * as actions from '../actions/actions'
+import { connect } from 'react-redux';
+import * as actions from '../actions/actions';
+import { Link } from 'react-router-dom';
+
 
 export class Choose extends Component {
   render() {
+    const { wordClick, wordsRemaining, words } = this.props;
+
     return (
       <div>
-      {this.props.words.map((word, i) => {
-        return (
-          <span
-          className={`wordSelected-${word.selected}`} 
-          key={i}
-          onClick={() => this.props.wordClick(i)}
-          >
-          {word.text}
-          {' '}
-          </span>)
-      })}
+        <div>
+        {words.map((word, i) => {
+          return (
+            <span className={`wordSelected-${word.selected}`} key={i} onClick={() => wordClick(i)} >
+              {word.text}
+              {' '}
+            </span>
+          )
+        })}
+        </div>
+
+        <div> {`${wordsRemaining} words remaining`} </div>
+        <Link to='/media'> Next </Link>
       </div>
     )
   }
@@ -24,7 +30,7 @@ export class Choose extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    wordClick: i => {
+    wordClick: (i) => {
       dispatch(actions.wordClick(i))
     }
   }
@@ -32,7 +38,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    words: state.input.wordsArray
+    words: state.input.wordsArray,
+    wordsRemaining: state.input.wordsRemaining
   }
 }
 

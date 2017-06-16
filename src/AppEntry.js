@@ -6,13 +6,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
 import Choose from './components/choose'
+import Media from './components/media'
+
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { middleware as asyncTool } from 'redux-pack';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, asyncTool, logger)));
+const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, asyncTool )));
+// const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, asyncTool , logger)));
 
 ReactDOM.render(
   <Provider store={store}>
@@ -21,6 +24,8 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/choose" component={Choose} />
+          <Route path="/media" component={Media} />
+
 
         </Switch>
       </div>

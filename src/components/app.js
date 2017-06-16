@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from '../actions/actions'
 import Choose from './choose'
-import { Route } from 'react-router-dom';
 
 
 export class App extends Component {
   render() {
+
+    const { textChange, history, buttonClick } = this.props;
+    const { string, charactersRemaining } = this.props.state;
+
     return (
       <div>
         <h1> dope </h1>
         <form>
-          <textarea onChange={this.props.textChange} value={this.props.state.string} />
-          {this.props.state.charactersRemaining} characters remaining
-          <button onClick={(e) => this.props.buttonClick(e, this.props.history)}> submit </button>
+          <textarea onChange={ textChange } value={ string } />
+          { charactersRemaining } characters remaining
+          <button onClick={(e) => buttonClick(e, history)}> submit </button>
         </form>
-        <Route path="/choose" component={Choose}/>
       </div>
     );
   }
