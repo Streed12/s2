@@ -22,6 +22,7 @@ export default function inputReducer(state = initialInputState, action) {
 
     case 'inputButtonClick':
       return Object.assign({}, state, {
+        wordsRemaining: MAX_SELECTED_WORDS,
         wordsArray: state.string.split(' ').map(word => {
           return { text: word, selected: false}
         })

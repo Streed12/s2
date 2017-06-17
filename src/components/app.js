@@ -4,7 +4,36 @@ import * as actions from '../actions/actions'
 import Choose from './choose'
 
 
+
 export class App extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      displayError: false
+    }
+
+    this.validate = this.validate.bind(this);
+  }
+
+  validate() {
+    const { history, buttonClick } = this.props;
+    const { string } = this.props.state;
+
+    if (string.split(' ').length < 5) {
+      this.setState({
+        displayError: true
+      })
+      setTimeout(() => {
+        this.setState({
+          displayError: false
+        })
+      }, 2000)
+
+    } else {
+      buttonClick(history)
+    }
+  }
+
   render() {
 
     const { textChange, history, buttonClick } = this.props;
@@ -12,11 +41,15 @@ export class App extends Component {
 
     return (
       <div>
-        <h1> dope </h1>
         <form>
-          <textarea onChange={ textChange } value={ string } />
-          { charactersRemaining } characters remaining
-          <button onClick={(e) => buttonClick(e, history)}> submit </button>
+          <div className="inputArea">
+            <textarea onChange={ textChange } value={ string } />
+            <div className="inputInfo">
+              <span className="formValidation">{this.state.displayError ? "Please input at least five words" : ""}</span>
+              <span className="charsRemaining"> { charactersRemaining } </span>
+            </div>
+          </div>
+            <span className="nextLink" onClick={this.validate}> NEXT </span>
         </form>
       </div>
     );

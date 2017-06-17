@@ -4,6 +4,8 @@ import * as actions from '../actions/actions'
 import { Route } from 'react-router-dom';
 import getGiphy from '../media/giphy'
 import ImageStrip from './imagestrip'
+import { Link } from 'react-router-dom';
+
 
 
 export class Media extends Component {
@@ -12,6 +14,11 @@ export class Media extends Component {
   }
 
   componentWillMount() {
+    if (!this.props.searchTerms.length) {
+     this.props.history.push('/');
+     return;
+    }    
+
     let { loadImages, searchTerms } = this.props;
     loadImages(searchTerms);
   }
@@ -21,7 +28,8 @@ export class Media extends Component {
     const { nextBatch, prevBatch, words, selectClick } = this.props
 
     return (
-      <div>
+      <div className="media">
+      <div >
       {words.map((word, idx) => {
         return (
           <ImageStrip 
@@ -34,6 +42,10 @@ export class Media extends Component {
           />
         )
       })}
+      </div>
+      <span className="nextLink"> NEXT </span>
+      <Link className="backLink" to='/choose'> {'< BACK '} </Link>
+
       </div>
     );
   }
@@ -60,6 +72,7 @@ const filterSelectedWords = (wordsArray) => {
   return wordsArray.filter(word => word.selected)
                    .map(word => word.text);
 };
+
 
 const mapStateToProps = (state) => {
   return {

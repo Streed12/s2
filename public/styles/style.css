@@ -1,15 +1,183 @@
-body {
-  
+html, body {
+  height: 100%;
+  font-family: verdana;
+  font-weight: 100;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+form textarea, .chooseBox {
+  font-family: verdana;
+  font-weight: 100;
+  padding: 30px 20px;
+  margin-top: .25em;
+  border-radius: 10px;
+  border: solid 2px #625c5c;
+  resize: none;
+  height: 400px;
+  font-size: 58px
+}
+
+.chooseBox {
+  border: none;
+}
+
+.nextLink {
+  background-color: black;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  bottom: 2.9em;
+  left: 0;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  text-decoration: none;
+  position: absolute;
+  right: 2px;
+  bottom: 2.65em;
+  left: 0;
+  color: #393838;
+  margin-right: 15px
+}
+
+
+
+.nextLink:hover {
+  background-color: #393838;
+  cursor: pointer;
+}
+
+.inputInfo {
+  margin: auto 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+}
+
+.formValidation {
+  color: red;
+}
+
+.inputArea {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .wordSelected-true {
-  color: blue;
+  color: black;
+  background-color: #dcd8d8
+}
+
+.wordSelected-false:hover,
+.wordSelected-true:hover {
+  cursor: pointer;
+  color: #393838;
 }
 
 .wordSelected-false {
-  color: red;
+  color: black;
 }
 
 .imageSelected-true {
   border: solid;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  font-size: 5em;
+}
+
+.tapInstructions {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #b6b6b6;
+}
+
+.tapInstructions-error {
+  margin-top: 20px;
+  margin-left: 20px;
+  color: red;
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.image-strip {
+  width: 100%;
+  display: flex;
+}
+
+.images-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.image {
+  height: 125px;
+  width : 175px;
+  margin: auto 15px;
+}
+
+.image-scroll {
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px
+}
+
+.image-scroll-true:hover {
+  border: 1px solid #393838;
+  cursor: pointer;
+}
+
+.image-word {
+  width: 25px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
+  margin-right: 5px;
+  font-size: 40px;
+
+}
+
+
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }

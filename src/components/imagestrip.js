@@ -6,21 +6,28 @@ import Choose from './choose'
 
 const ImageStrip = ({ wordIndex, nextBatch, prevBatch, selectClick, word}) => {
     return (
-      <div>
-        {!word.atBeginning && <button onClick={() => prevBatch(wordIndex)}> Prev </button>}
-        { word.string }
-        {word.displayedImages.map((image, idx) => {
-          return(
-            <div key={idx}>
-              <img 
-                src={image.url} 
-                className={`imageSelected-${image.selected}`}
-                onClick={() => selectClick(wordIndex, idx)} />
-            </div>
-          )
-        })}
-        {!word.atEnd && <button onClick={() => nextBatch(wordIndex)}> Next </button>}
-
+      <div className='image-strip'>
+        <div className="image-word"> { word.string } </div>
+        <div className='image-scroll'>
+          {!word.atBeginning && <div className='image-scroll-true' onClick={() => prevBatch(wordIndex)}> {`<`} </div>}
+        </div>
+        <div className="images-row">
+        
+        <div className="images-container">
+          {word.displayedImages.map((image, idx) => {
+            return(
+                <img 
+                  key={idx}
+                  src={image.url} 
+                  className={`image imageSelected-${image.selected}`}
+                  onClick={() => selectClick(wordIndex, idx)} />
+            )
+          })}
+        </div>
+        <div className='image-scroll'> 
+          {!word.atEnd && <div className='image-scroll-true' onClick={() => nextBatch(wordIndex)}> {`>`} </div>}
+        </div>
+        </div>
       </div>
     )
 }

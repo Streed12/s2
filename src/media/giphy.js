@@ -17,29 +17,29 @@ const createUrl = (url, params) => {
   return `${url}${paramsSerialized}`;
 };
 
-const giphyNormalize = (results) => {
-  return results.data.data.map(result => {
-    return result.images['fixed_height_small'].url;
+const giphyNormalize = ({ data }) => {
+  return data.map(result => {
+    return result.images['fixed_height'].url;
   })
 };
 
 const getGiphy = async (searchTerm) => {
   let url = createUrl(GIPHY_URL, {...GIPHY_PARAMS, ...{ q: searchTerm }});
-  return axios.get(url)
-    .then(results => {
-      if (!results.data.data.length) {
-        throw 'no results'
-      } else {
-        return {
-          word: searchTerm,
-          images: giphyNormalize(results)
-        }
+
+  try {
+    let { data } = await axios.get(url);
+
+    if (!data.data.length) {
+      throw 'no results'
+    } else {
+      return {
+        word: searchTerm,
+        images: giphyNormalize(data)
       }
-    })
-    .catch(err => {
-      console.log('err', err)
-      return err === 'no results' ? 'no results' : 'network error'
-    });
+    }
+  } catch (err) {
+      return err === 'no results' ? 'no results' : 'network error'    
+  }
 };
 
 export default getGiphy;

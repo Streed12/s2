@@ -12,6 +12,8 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { middleware as asyncTool } from 'redux-pack';
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, asyncTool )));
@@ -21,13 +23,13 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route exact path="/" component={App} />
-          <Route path="/choose" component={Choose} />
-          <Route path="/media" component={Media} />
-
-
-        </Switch>
+        <Header />
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route path="/choose" component={Choose} />
+            <Route path="/media" component={Media} />
+          </Switch>
+        <Footer />
       </div>
     </BrowserRouter>
   </Provider>

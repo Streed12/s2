@@ -2,17 +2,16 @@ const DISPLAY_PER_ROW = 3;
 const WORDS_TO_DISPLAY = 5;
 
 const shape = {
-  wordIndex: null, //not using this?
   string: '',
   imagesArray: [],
   displayedImages: [],
   chosenIndex: null,
-  atIndex: 0,
+  atIndex: 0,  
   atBeginning: true,
   atEnd: false,
 };
 
-// displayedImages = [ { url: url, chosen: true/false } ]
+// displayedImages = [ { url: url, selected: true/false } ]
 
 const createDisplayedImages = (images, startIdx) => {
   return images.slice(startIdx, startIdx + DISPLAY_PER_ROW)
@@ -30,7 +29,6 @@ export default function imagesReducer(state = [], action) {
     case 'createImageState':
       return action.payload.map((obj, idx) => {
         return Object.assign({}, shape, {
-          wordIndex: idx,
           string: obj.word,
           imagesArray: obj.images,
           displayedImages: createDisplayedImages(obj.images, 0)
@@ -59,9 +57,8 @@ export default function imagesReducer(state = [], action) {
       return nextState;
 
     case 'prevBatch':
-
       var wordIndex = action.payload;
-      var word = state[wordIndex];
+      var word = state[wordIndex];  
       if (word.atBeginning) {
         return state;
       }
