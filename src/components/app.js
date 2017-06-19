@@ -51,7 +51,7 @@ export class App extends Component {
           </div>
         </form>
         <div className="nextLink">
-          <span onClick={this.validate}> NEXT </span>
+          <span onClick={this.validate}> NEXT > </span>
         </div>
       </div>
     );

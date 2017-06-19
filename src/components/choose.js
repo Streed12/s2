@@ -59,9 +59,10 @@ export class Choose extends Component {
         })}
         </div>
         <div className="nextLink">
-          <span onClick={this.validate}> NEXT </span>
+          <Link className="backLink" to='/'> {'< BACK '} </Link>
+          <span onClick={this.validate}> NEXT > </span>
         </div>
-        <Link className="backLink" to='/'> {'< BACK '} </Link>
+        
 
       </div>
     )

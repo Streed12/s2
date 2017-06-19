@@ -44,9 +44,9 @@ export class Media extends Component {
       })}
       </div>
       <div className="nextLink">
-        <span> NEXT </span>
-      </div>
       <Link className="backLink" to='/choose'> {'< BACK '} </Link>
+        <span> NEXT > </span>
+      </div>
 
       </div>
     );
