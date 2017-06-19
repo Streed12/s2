@@ -44,9 +44,9 @@ export class Choose extends Component {
     const { wordClick, words } = this.props;
 
     return (
-      <div className="choose-container">
+      <div className="choose-container app-interior-container">
         <div className={`tapInstructions${this.state.displayError ? '-error' : ''}`}>Tap five keywords </div>
-        <div className="chooseBox">
+        <div className="chooseBox inner-content">
         {words.map((word, i) => {
           return (
             <span key={i}>
@@ -58,7 +58,9 @@ export class Choose extends Component {
           )
         })}
         </div>
-        <span className="nextLink" onClick={this.validate}> NEXT </span>
+        <div className="nextLink">
+          <span onClick={this.validate}> NEXT </span>
+        </div>
         <Link className="backLink" to='/'> {'< BACK '} </Link>
 
       </div>

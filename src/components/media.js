@@ -28,8 +28,8 @@ export class Media extends Component {
     const { nextBatch, prevBatch, words, selectClick } = this.props
 
     return (
-      <div className="media">
-      <div >
+      <div className="media-container">
+      <div className="media-inner-container inner-content">
       {words.map((word, idx) => {
         return (
           <ImageStrip 
@@ -43,7 +43,9 @@ export class Media extends Component {
         )
       })}
       </div>
-      <span className="nextLink"> NEXT </span>
+      <div className="nextLink">
+        <span> NEXT </span>
+      </div>
       <Link className="backLink" to='/choose'> {'< BACK '} </Link>
 
       </div>

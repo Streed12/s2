@@ -40,8 +40,8 @@ export class App extends Component {
     const { string, charactersRemaining } = this.props.state;
 
     return (
-      <div>
-        <form>
+      <div className="app-interior-container">
+        <form className="inner-content">
           <div className="inputArea">
             <textarea onChange={ textChange } value={ string } />
             <div className="inputInfo">
@@ -49,8 +49,10 @@ export class App extends Component {
               <span className="charsRemaining"> { charactersRemaining } </span>
             </div>
           </div>
-            <span className="nextLink" onClick={this.validate}> NEXT </span>
         </form>
+        <div className="nextLink">
+          <span onClick={this.validate}> NEXT </span>
+        </div>
       </div>
     );
   }
