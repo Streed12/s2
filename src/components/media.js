@@ -9,9 +9,14 @@ import { Link } from 'react-router-dom';
 
 
 export class Media extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayError: false
+    }
+    this.validateSelections = this.validateSelections.bind(this)
   }
+
 
   componentWillMount() {
     if (!this.props.searchTerms.length) {
@@ -23,12 +28,30 @@ export class Media extends Component {
     loadImages(searchTerms);
   }
 
+  validateSelections() {
+    let { words, generateVideo, history } = this.props;
+
+    if(Object.keys(words).length !== 5){
+      this.setState({
+        displayError: true
+      })
+      setTimeout(() => {
+        this.setState({
+          displayError: false
+        })
+      }, 1500)
+    } else {
+      this.props.generateVideo(words);
+      history.push('/spunVideo')
+    }
+  }
 
   render() {
-    const { nextBatch, prevBatch, words, selectClick } = this.props
+    const { nextBatch, prevBatch, words, selectClick } = this.props;
 
     return (
       <div className="media-container">
+      <div className={`tapInstructions${this.state.displayError ? '-error' : ''}`}>Select five gifs</div>
       <div className="media-inner-container inner-content">
       {words.map((word, idx) => {
         return (
@@ -45,7 +68,7 @@ export class Media extends Component {
       </div>
       <div className="nextLink">
       <Link className="backLink" to='/choose'> {'< BACK '} </Link>
-        <span> NEXT > </span>
+        <span onClick={this.validateSelections}> NEXT > </span>
       </div>
 
       </div>
@@ -67,6 +90,9 @@ const mapDispatchToProps = (dispatch) => {
     selectClick: (wordIndex, imageIndex) => {
       dispatch(actions.selectClick(wordIndex, imageIndex))
     },
+    generateVideo: (images) => {
+      dispatch(actions.generateVideo(images))
+    }
   }
 };
 

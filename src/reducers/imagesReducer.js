@@ -8,7 +8,7 @@ const shape = {
   chosenIndex: null,
   atIndex: 0,  
   atBeginning: true,
-  atEnd: false,
+  atEnd: false
 };
 
 // displayedImages = [ { url: url, selected: true/false } ]
@@ -83,7 +83,16 @@ export default function imagesReducer(state = [], action) {
       newState[wordIndex].displayedImages[previousSelection].selected = false;
       newState[wordIndex].chosenIndex = imageIndex;
       newState[wordIndex].displayedImages[imageIndex].selected = true;
-      return newState
+
+      return newState;
+
+
+    case 'produceVideo':
+      let { videoURL } = action.payload;
+      let updatedState = Object.assign({}, state, {
+        videoURL
+      }); 
+      return updatedState;
 
     default:
       return state

@@ -1,4 +1,5 @@
 import getGiphy from '../media/giphy'
+import axios from 'axios'
 
 const inputTextChange = (e) => {
   e.preventDefault();
@@ -57,5 +58,16 @@ const selectClick = (wordIndex, imageIndex) => {
   }
 };
 
+
+const generateVideo = (images) => async dispatch => {
+
+  let videoURL = await axios.post('/api/generate', { images });
+
+  dispatch({
+    type: 'produceVideo',
+    payload: { videoURL: videoURL.data }
+  })
+}
+
 export { inputTextChange, inputButtonClick, wordClick, 
-         loadImages, nextBatch, prevBatch, selectClick };
+         loadImages, nextBatch, prevBatch, selectClick, generateVideo };

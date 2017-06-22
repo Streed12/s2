@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from 'passport';
 import logger from 'morgan';
+import generator from './spunGenerator';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 /****************/
 /**** Wildcard ****/
 /****************/
+app.post('/api/generate', generator.buildVideo);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
