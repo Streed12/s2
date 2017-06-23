@@ -8,11 +8,11 @@ const ImageStrip = ({ wordIndex, nextBatch, prevBatch, selectClick, word}) => {
     return (
       <div className='image-strip'>
         <div className="image-word"> { word.string } </div>
+        
+        <div className="images-row">
         <div className='image-scroll'>
           {!word.atBeginning && <div className='image-scroll-true' onClick={() => prevBatch(wordIndex)}> {`<`} </div>}
         </div>
-        <div className="images-row">
-        
         <div className="images-container">
           {word.displayedImages.map((image, idx) => {
             return(

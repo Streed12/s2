@@ -41,7 +41,8 @@
     "redux-logger": "^3.0.6",
     "redux-pack": "^0.1.5",
     "redux-thunk": "^2.2.0",
-    "serve-favicon": "^2.4.3"
+    "serve-favicon": "^2.4.3",
+    "xmlbuilder": "^9.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

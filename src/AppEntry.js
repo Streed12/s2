@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/app';
 import Choose from './components/choose'
 import Media from './components/media'
+import SpunVideo from './components/spunVideo'
 
 import reducers from './reducers';
 import thunk from 'redux-thunk';
@@ -22,13 +23,16 @@ const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <div>
+      <div className="main-container">
         <Header />
+        <div className="main-content">
           <Switch>
             <Route exact path="/" component={App} />
             <Route path="/choose" component={Choose} />
             <Route path="/media" component={Media} />
+            <Route path="/spunVideo" component={SpunVideo} />
           </Switch>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>
