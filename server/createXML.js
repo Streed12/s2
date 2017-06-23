@@ -16,9 +16,10 @@ let mediaXML = builder.create('root')
 module.exports = (medias, type) => {
 
   if( type === 'gif'){
-    medias.forEach(media => {
+    medias.forEach((media, idx) => {
       let { imagesArray, chosenIndex } = media;
-      let imgURL = imagesArray[chosenIndex].replace(/\?.*/,'')
+      let imgURL = imagesArray[chosenIndex].replace(/200.*/,'giphy.gif')
+
       let item = mediaXML.ele('item')
       
       item.ele('layer', 0).up()
@@ -28,12 +29,13 @@ module.exports = (medias, type) => {
       item.ele('trimStart', trimStart).up()      
       item.ele('trimEnd', trimEnd).up()      
       item.ele('startPoint', startPoint).up()      
-      item.ele('endPoint', 7000).up()      
+      item.ele('endPoint', startPoint + 7000).up()      
       item.ele('xPosition', 0).up()      
       item.ele('yPosition', 0).up()      
-      item.ele('mediaWidth', 750).up()      
-      item.ele('mediaHeight', 750).up()           
+      item.ele('mediaWidth', 400).up()      
+      item.ele('mediaHeight', 300).up()           
       .up()
+      startPoint += 7000;
       trimEnd += trimStart;
       trimStart += 7000;
     })

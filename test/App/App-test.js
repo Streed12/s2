@@ -9,7 +9,7 @@ describe('<App />', function() {
   it('should render', function() {
     const wrapper = shallow(<App />);
     expect(wrapper.contains(
-      <h1> react redux starter </h1>
+      <h1> SPUN </h1>
     )).to.equal(true);
   });
 

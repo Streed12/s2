@@ -4,6 +4,9 @@ html, body {
   font-weight: 100;
   margin: 0;
 }
+h1 {
+  font-size: 72px;
+}
 form {
   display: flex;
   justify-content: center;
@@ -167,7 +170,7 @@ textarea {
 }
 
 .media-inner-container {
-  justify-content: space-between;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -222,7 +225,10 @@ textarea {
   flex: 2;
 }
 
-
+.video-player {
+  display: flex;
+  align-self: center;
+}
 
 .footer {
   display: flex;

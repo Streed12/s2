@@ -11,7 +11,7 @@ const buildVideo = (req, res) => {
 
   axios.put(awsURL, mediaFormatted, {
     headers: {
-        'Content-Type': 'application/xml'        
+        'Content-Type': 'application/xml'       
     }
   })
   .then(data => {

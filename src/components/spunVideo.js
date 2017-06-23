@@ -16,13 +16,18 @@ export class SpunVideo extends Component {
     }    
   }
   render() {
-    const { videoURL } = this.props;
+    // const { videoURL } = this.props;
+    const videoURL = '/SPUNTrailer.mp4'
+    let videoPlayer = videoURL ? 
+      (<video width="640" height="480" controls>
+      <source src={videoURL} type="video/mp4" />
+      Your browser does not support the video tag.</video> ) : <span>'isLoading'</span>;
 
     return (
       <div className="media-container">
       <div className="media-inner-container inner-content">
-        <div>
-          <span>{videoURL || 'isLoading'}</span>
+        <div className="video-player">
+          {videoPlayer}
         </div> 
       </div>
       <div className="nextLink">

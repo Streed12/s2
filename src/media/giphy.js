@@ -28,7 +28,7 @@ const getGiphy = async (searchTerm) => {
 
   try {
     let { data } = await axios.get(url);
-    
+
     if (!data.data.length) {
       throw 'no results'
     } else {
