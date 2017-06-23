@@ -12,7 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret: 'shhhhhhhhh', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -22,7 +22,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 /****************/
 /**** Wildcard ****/
 /****************/
+
 app.post('/api/generate', generator.buildVideo);
+
+app.post('/test.xml', generator.getInfo);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
