@@ -64,8 +64,7 @@ const generateVideo = () => async (dispatch, getState) => {
   const { string: textEntry } = input
   let selectedWords = images.map(image => {
   let { chosenIndex } = image;
-  console.log('video generator', 'chosen index', chosenIndex, 'chosen image', image.displayedImages[chosenIndex])
-  
+    
     return {
       word: image.string,
       imageURL: image.displayedImages[chosenIndex].url.replace(/200.*/,'giphy.gif'),
