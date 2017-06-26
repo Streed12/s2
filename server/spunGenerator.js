@@ -4,7 +4,6 @@ import { createXML } from './createXML'
 import util from 'util'
 import crypto from 'crypto';
 
-
 const awsURL = 'https://mediamix-upload.s3-eu-central-1.amazonaws.com/public/'
 let counter = 0;
 
