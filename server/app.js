@@ -13,6 +13,11 @@ const app = express();
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({ secret: 'shhhhhhhhh', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, '../public')));
 
 /* CLIENT ROUTES */
 app.get('/api/generateID', spun.videoIDGenerator);

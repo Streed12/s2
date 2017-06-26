@@ -59,7 +59,7 @@ const selectClick = (wordIndex, imageIndex) => {
 };
 
 
-const buildVideo = (images) => async (dispatch, getState) => {
+const generateVideo = (images) => async (dispatch, getState) => {
   let { input, images } = getState();
   const { string: textEntry } = input
   let selectedWords = images.map(image => {
