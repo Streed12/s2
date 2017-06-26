@@ -1,7 +1,7 @@
 {
   "name": "spun 2",
   "version": "1.0.0",
-  "description": "preferred react-redux setup for small to medium sized applications",
+  "description": "Spun 2",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -18,15 +18,19 @@
     "type": "git",
     "url": "git+https://github.com/Jukejc/react-redux-starter.git"
   },
-  "author": "Jason Chambers",
+  "author": "Steve Reed and Eugene Shifrin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jukejc/react-redux-starter/issues"
+    "url": "https://github.com/eshifrin/s2/issues"
   },
-  "homepage": "https://github.com/Jukejc/react-redux-starter#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
     "base64-arraybuffer": "^0.1.5",
     "base64-img": "^1.0.3",
     "base64-js": "^1.2.1",
@@ -52,6 +56,7 @@
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.4.3",
     "text-encoder-lite": "^1.0.0",
+    "webpack": "^2.6.1",
     "xmlbuilder": "^9.0.1"
   },
   "devDependencies": {
