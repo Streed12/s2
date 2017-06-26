@@ -13,8 +13,8 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { middleware as asyncTool } from 'redux-pack';
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/header'
+import Footer from './components/footer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, asyncTool )));
