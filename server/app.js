@@ -24,17 +24,12 @@ app.get('/api/generateID', spun.videoIDGenerator);
 app.get('/api/videoURL/:videoID', spun.sendVideoURL);
 app.post('/api/buildVideo', spun.buildVideo);
 
-
-
 /* SERVER TO SERVER ROUTES */
 app.post('/video/:videoID', spun.saveVideoURL);
 
-
 /* CATCH ALL ROUTES */
-
 app.get('*', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../public/index.html'));
 });
-
 
 module.exports = app;
