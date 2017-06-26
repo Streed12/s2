@@ -19,7 +19,12 @@ const createUrl = (url, params) => {
 
 const giphyNormalize = ({ data }) => {
   return data.map(result => {
-    return result.images['fixed_height'].url;
+    return {
+      id: result.id,
+      url: result.images['fixed_height'].url,
+      height: result.images['original'].height,
+      width: result.images['original'].width
+    }
   })
 };
 

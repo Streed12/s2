@@ -16,8 +16,7 @@ export class SpunVideo extends Component {
     }    
   }
   render() {
-    // const { videoURL } = this.props;
-    const videoURL = '/SPUNTrailer.mp4'
+    const { videoURL } = this.props;
     let videoPlayer = videoURL ? 
       (<video width="640" height="480" controls>
       <source src={videoURL} type="video/mp4" />
@@ -25,16 +24,15 @@ export class SpunVideo extends Component {
 
     return (
       <div className="media-container">
-      <div className="media-inner-container inner-content">
-        <div className="video-player">
-          {videoPlayer}
-        </div> 
-      </div>
-      <div className="nextLink">
-      <Link className="backLink" to='/choose'> {'< BACK '} </Link>
-        <span> NEXT > </span>
-      </div>
-
+        <div className="media-inner-container inner-content">
+          <div className="video-player">
+            {videoPlayer}
+          </div> 
+        </div>
+        <div className="nextLink">
+          <Link className="backLink" to='/choose'> {'< BACK '} </Link>
+          <span> NEXT > </span>
+        </div>
       </div>
     );
   }

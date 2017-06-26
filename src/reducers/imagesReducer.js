@@ -15,10 +15,10 @@ const shape = {
 
 const createDisplayedImages = (images, startIdx) => {
   return images.slice(startIdx, startIdx + DISPLAY_PER_ROW)
-         .map(url => { 
+         .map(image => { 
             return { 
-              url: url, 
-              selected: false 
+             ...image,
+            selected: false 
             }
           });
 };
@@ -93,6 +93,13 @@ export default function imagesReducer(state = [], action) {
         videoURL
       }); 
       return updatedState;
+
+    case 'setErrorMessage':
+      let errorMessage = action.payload;
+      let renewedState = Object.assign({}, state, {
+        errorMessage
+      }); 
+      return renewedState;
 
     default:
       return state
