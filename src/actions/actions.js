@@ -59,20 +59,23 @@ const selectClick = (wordIndex, imageIndex) => {
 };
 
 
-const generateVideo = (images) => async (dispatch, getState) => {
+const generateVideo = () => async (dispatch, getState) => { 
   let { input, images } = getState();
   const { string: textEntry } = input
   let selectedWords = images.map(image => {
   let { chosenIndex } = image;
+  console.log('video generator', 'chosen index', chosenIndex, 'chosen image', image.displayedImages[chosenIndex])
+  
     return {
       word: image.string,
-      imageURL: image.displayedImages[chosenIndex].url.replace(/200.*/,'giphy.mp4'),
+      imageURL: image.displayedImages[chosenIndex].url.replace(/200.*/,'giphy.gif'),
       height: image.displayedImages[chosenIndex].height,
       width: image.displayedImages[chosenIndex].width
     }
   })
   try {
-    const videoID = await axios.get('/api/generateID')
+    const { data: videoID } = await axios.get('/api/generateID')
+    
     const _vidSent = await axios.post('/api/buildVideo', { selectedWords, textEntry, videoID });
     const videoURL = await axios.get(`/api/videoURL/${videoID}`)
 

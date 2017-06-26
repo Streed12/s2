@@ -15,8 +15,10 @@ const base64Async = (url) => {
   });
 };
 
+
 const getDuration = async (url) => {
-  const b64 = await base64Async(url);
+  const downsizedURL = url.replace(/giphy.gif/, '100w.gif')
+  const b64 = await base64Async(downsizedURL);
   const b64Stripped = b64.replace(/^data:image\/[a-z]+;base64,/, "");
   const pictureDatainBinary = Buffer.from(b64Stripped, 'base64');
   return gifyParse.getInfo(pictureDatainBinary).duration;
@@ -30,7 +32,6 @@ const attachDuration = async (mediaItem) => {
 const createXML = async ({selectedWords, textEntry, videoID}) => {
   const promises = selectedWords.map(attachDuration);
   const withDuration = await Promise.all(promises);
-
 
   let mediaXML = builder.create('root')
     .ele('callbackUrl', `${callbackURL}${videoID}`).up()

@@ -11,7 +11,7 @@ const shape = {
   atEnd: false
 };
 
-// displayedImages = [ { url: url, selected: true/false } ]
+
 
 const createDisplayedImages = (images, startIdx) => {
   return images.slice(startIdx, startIdx + DISPLAY_PER_ROW)
