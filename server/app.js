@@ -16,13 +16,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* CLIENT ROUTES */
 app.get('/api/generateID', spun.videoIDGenerator);
-app.post('/api/buildVideo', spun.buildVideo);
 app.get('/api/videoURL/:videoID', spun.sendVideoURL);
+app.post('/api/buildVideo', spun.buildVideo);
+
+/* SERVER TO SERVER ROUTES */
+app.post('/video/:videoID', spun.saveVideoURL);
+
+
+/* CATCH ALL ROUTES */
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-/* SERVER TO SERVER ROUTES */
-app.post('/video/:videoID', spun.saveVideoURL);
 
 module.exports = app;
