@@ -26,7 +26,7 @@ const getDuration = async (url) => {
 
 const attachDuration = async (mediaItem) => {
   const duration = await getDuration(mediaItem.imageURL);
-  return {...mediaItem, duration};
+  return Object.assign({}, mediaItem, { duration });
 };
 
 const createXML = async ({selectedWords, textEntry, videoID}) => {
