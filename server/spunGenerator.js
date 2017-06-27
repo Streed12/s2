@@ -68,6 +68,8 @@ const sendVideoURL = (req, res) => {
 
 const saveVideoURL = (req, res) => {
   const { videoID } = req.params;
+  console.log('SAVE VIDEO POST REQUEST FROM AWS', req.body)
+  console.log('OUR LOCAL CACHE', videoURLCache)
   const url = req.body.xml.result[0];
   if (videoURLCache[videoID]) {
     videoURLCache[videoID] = url;
