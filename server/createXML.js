@@ -1,8 +1,8 @@
-import builder from 'xmlbuilder'
-import { AWS } from './config_setup'
-import base64Img from 'base64-img'
-import gifyParse from 'gify-parse'
-import axios from 'axios'
+const builder = require('xmlbuilder');
+const { AWS } = require('./config_setup');
+const base64Img = require('base64-img');
+const gifyParse = require('gify-parse');
+const axios = require('axios');
 
 let { username, client, callbackURL } = AWS
 

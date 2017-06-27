@@ -1,8 +1,8 @@
-import builder from 'xmlbuilder'
-import axios from 'axios'
-import { createXML } from './createXML'
-import util from 'util'
-import crypto from 'crypto';
+const builder = require('xmlbuilder');
+const axios = require('axios');
+const { createXML } = require('./createXML');
+const util = require('util');
+const crypto = require('crypto');
 
 const awsURL = 'https://mediamix-upload.s3-eu-central-1.amazonaws.com/public/'
 let counter = 0;

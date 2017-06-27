@@ -1,12 +1,12 @@
-import express from 'express';
-import path from 'path';
-import favicon from 'serve-favicon';
-import cookieParser from 'cookie-parser';
-import bodyParser from 'body-parser';
-import session from 'express-session';
-import passport from 'passport';
-import logger from 'morgan';
-import spun from './spunGenerator';
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const logger = require('morgan');
+const spun = require('./spunGenerator');
 
 const app = express();
 
