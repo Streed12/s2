@@ -13,7 +13,7 @@ const videoIDGenerator = (req, res) => {
   const hash = crypto.createHash('sha256');
   hash.update(++counter + '-' + new Date().toString());
   let videoID = hash.digest('hex').slice(0, 10);
-  console.log('video id generated', videoID) // delete
+
   videoURLCache[videoID] = 'waiting';
   res.status(200).send(videoID);
 }
