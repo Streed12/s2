@@ -87,13 +87,14 @@ const sendVideoURL = (req, res) => {
       } else {
         res.status(200).send(newStatus);
       }
-    }, 10000);
+    }, 15000);
   } else {
     res.status(200).send(status);
   }
 };
 
 const saveVideoURL = (req, res) => {
+  console.log('VIDEO RESPONSE FROM ENGINE', req.body)
   const { videoID } = req.params;
   const url = req.body.result;
   if (videoURLCache[videoID]) {
