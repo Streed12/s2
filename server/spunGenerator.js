@@ -52,7 +52,6 @@ const sendVideoURL = (req, res) => {
     res.status(500).send('Error with engine. Retry Later');
   } else if (status === 'waiting') {
     setTimeout(() => {
-      console.log('INSIDE TIMEOUT', videoID, videoURLCache[videoID])
       const newStatus = videoURLCache[videoID];
       if(newStatus === 'waiting') {
         res.status(500).send('Server took too long. App engine down.');
@@ -72,7 +71,6 @@ const saveVideoURL = (req, res) => {
   const url = req.body.xml.result[0];
   if (videoURLCache[videoID]) {
     videoURLCache[videoID] = url;
-    console.log('VIDEO URL CACHE AFTER SAVE', videoURLCache)
   } else {
     console.log('invalid id', videoID, url);
   }
