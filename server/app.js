@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import passport from 'passport';
 import logger from 'morgan';
-import generator from './spunGenerator';
+import spun from './spunGenerator';
 
 const app = express();
 
@@ -19,16 +19,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, '../public')));
 
-/****************/
-/**** Wildcard ****/
-/****************/
+/* CLIENT ROUTES */
+app.get('/api/generateID', spun.videoIDGenerator);
+app.get('/api/videoURL/:videoID', spun.sendVideoURL);
+app.post('/api/buildVideo', spun.buildVideo);
 
-app.post('/api/generate', generator.buildVideo);
+/* SERVER TO SERVER ROUTES */
+app.post('/video/:videoID', spun.saveVideoURL);
 
-app.post('/test.xml', generator.getInfo);
+
+/* CATCH ALL ROUTES */
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
+
 
 module.exports = app;

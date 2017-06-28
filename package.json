@@ -25,12 +25,19 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-cli": "^6.24.1",
+    "base64-arraybuffer": "^0.1.5",
+    "base64-img": "^1.0.3",
+    "base64-js": "^1.2.1",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "deline": "^1.0.4",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "gify": "^0.2.0",
+    "gify-parse": "^1.0.6",
+    "is-stream": "^1.1.0",
     "morgan": "^1.8.2",
+    "node-ffprobe": "^1.2.2",
     "passport": "^0.3.2",
     "react": "^15.5.4",
     "react-redux": "^5.0.5",
@@ -42,6 +49,7 @@
     "redux-pack": "^0.1.5",
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.4.3",
+    "text-encoder-lite": "^1.0.0",
     "xmlbuilder": "^9.0.1"
   },
   "devDependencies": {
