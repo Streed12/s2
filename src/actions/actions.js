@@ -28,7 +28,7 @@ const wordClick = (idx) => {
 const loadImages = words => async dispatch => {
   let promises = words.map(word => getGiphy(word));
   let imageData = await Promise.all(promises);
-  
+
   dispatch({
     type: 'createImageState',
     payload: imageData
