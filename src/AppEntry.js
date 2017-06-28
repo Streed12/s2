@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './components/app';
 import Choose from './components/choose'
 import Media from './components/media'
+import SpunVideo from './components/spunVideo'
 
 import reducers from './reducers';
 import thunk from 'redux-thunk';
@@ -29,6 +30,7 @@ ReactDOM.render(
             <Route exact path="/" component={App} />
             <Route path="/choose" component={Choose} />
             <Route path="/media" component={Media} />
+            <Route path="/spunVideo" component={SpunVideo} />
           </Switch>
         </div>
         <Footer />
