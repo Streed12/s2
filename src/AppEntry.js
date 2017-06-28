@@ -22,13 +22,15 @@ const store = createStore(reducers, {} ,composeEnhancers(applyMiddleware(thunk, 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <div>
+      <div className="main-container">
         <Header />
+        <div className="main-content">
           <Switch>
             <Route exact path="/" component={App} />
             <Route path="/choose" component={Choose} />
             <Route path="/media" component={Media} />
           </Switch>
+        </div>
         <Footer />
       </div>
     </BrowserRouter>
