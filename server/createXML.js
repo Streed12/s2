@@ -1,8 +1,8 @@
-import builder from 'xmlbuilder'
-import { AWS } from './config_setup'
-import base64Img from 'base64-img'
-import gifyParse from 'gify-parse'
-import axios from 'axios'
+const builder = require('xmlbuilder');
+const { AWS } = require('./config_setup');
+const base64Img = require('base64-img');
+const gifyParse = require('gify-parse');
+const axios = require('axios');
 
 let { username, client, callbackURL } = AWS
 
@@ -15,8 +15,10 @@ const base64Async = (url) => {
   });
 };
 
+
 const getDuration = async (url) => {
-  const b64 = await base64Async(url);
+  const downsizedURL = url.replace(/giphy.gif/, '100w.gif')
+  const b64 = await base64Async(downsizedURL);
   const b64Stripped = b64.replace(/^data:image\/[a-z]+;base64,/, "");
   const pictureDatainBinary = Buffer.from(b64Stripped, 'base64');
   return gifyParse.getInfo(pictureDatainBinary).duration;
@@ -24,13 +26,12 @@ const getDuration = async (url) => {
 
 const attachDuration = async (mediaItem) => {
   const duration = await getDuration(mediaItem.imageURL);
-  return {...mediaItem, duration};
+  return Object.assign({}, mediaItem, { duration });
 };
 
 const createXML = async ({selectedWords, textEntry, videoID}) => {
   const promises = selectedWords.map(attachDuration);
   const withDuration = await Promise.all(promises);
-
 
   let mediaXML = builder.create('root')
     .ele('callbackUrl', `${callbackURL}${videoID}`).up()

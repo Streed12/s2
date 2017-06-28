@@ -41,7 +41,7 @@ export class Media extends Component {
         })
       }, 1500)
     } else {
-      this.props.generateVideo(words);
+      this.props.generateVideo();
       history.push('/spunVideo')
     }
   }
@@ -90,8 +90,8 @@ const mapDispatchToProps = (dispatch) => {
     selectClick: (wordIndex, imageIndex) => {
       dispatch(actions.selectClick(wordIndex, imageIndex))
     },
-    generateVideo: (images) => {
-      dispatch(actions.generateVideo(images))
+    generateVideo: () => {
+      dispatch(actions.generateVideo())
     }
   }
 };
