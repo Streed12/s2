@@ -43,9 +43,14 @@ const buildVideo = async (req, res) => {
   }
 
   res.status(200).end();
+<<<<<<< HEAD
   let mediaForm = await createMediaForm(req.body);
 
   return generateVideo(mediaForm, videoID);
+=======
+  let xmlFile = await createXML(req.body);
+  return generateVideo(xmlFile, videoID);
+>>>>>>> Just added giftest.
 };
 
 const generateVideo = async (mediaForm, videoID) => {
@@ -94,6 +99,7 @@ const sendVideoURL = (req, res) => {
 };
 
 const saveVideoURL = (req, res) => {
+  console.log(req.body)
   const { videoID } = req.params;
   const url = req.body.result;
   if (videoURLCache[videoID]) {

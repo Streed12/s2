@@ -10,6 +10,7 @@
     "test": "test"
   },
   "scripts": {
+    "dev-start": "nodemon ./server/index.js --exec babel-node",
     "start": "npm run production",
     "postinstall": "webpack",
     "production": "node server/index.js",
