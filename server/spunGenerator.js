@@ -99,7 +99,6 @@ const sendVideoURL = (req, res) => {
 };
 
 const saveVideoURL = (req, res) => {
-  console.log(req.body)
   const { videoID } = req.params;
   const url = req.body.result;
   if (videoURLCache[videoID]) {
