@@ -3,8 +3,6 @@ const base64Img = require('base64-img');
 const gifyParse = require('gify-parse');
 const axios = require('axios');
 
-let { username, client, callbackURL } = AWS
-
 const base64Async = (url) => {
   return new Promise((resolve, reject) => {
     base64Img.requestBase64(url, (err, res, body) => {
