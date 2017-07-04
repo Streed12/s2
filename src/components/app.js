@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/actions'
 import Choose from './choose'
 
-
-
 export class App extends Component {
   constructor(props) {
     super()

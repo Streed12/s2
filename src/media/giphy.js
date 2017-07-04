@@ -8,6 +8,7 @@ let GIPHY_PARAMS = {
   limit: '25'   //by default
 };
 
+
 const createUrl = (url, params) => {
 
   let paramsSerialized = Object.entries(params).map(pair => {
@@ -21,7 +22,7 @@ const giphyNormalize = ({ data }) => {
   return data.map(result => {
     return {
       id: result.id,
-      url: result.images['fixed_height'].url,
+      url: result.images['fixed_height_downsampled'].url,
       height: result.images['original'].height,
       width: result.images['original'].width
     }

@@ -5,6 +5,7 @@ const DIST_DIR = path.join(__dirname, '/public');
 
 
 module.exports = {
+  devtool: "cheap-module-source-map",
   entry: ['babel-polyfill', `${SRC_DIR}/AppEntry.js`],
   output: {
     filename: 'bundle.js',

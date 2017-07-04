@@ -135,7 +135,7 @@ textarea {
 }
 
 .imageSelected-true {
-  border: solid;
+  border: solid .25em #FF5000;
 }
 
 .header {
