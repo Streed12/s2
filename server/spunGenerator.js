@@ -23,7 +23,7 @@ const MediaEngineURLs = {
 const testParams = {
   username: 'test_user',
   key: '1e19b1be60887562b0dd73b23b92f6c1'
-}
+};
 
 const videoURLCache = {};
 let counter = 0;
@@ -37,7 +37,6 @@ const videoIDGenerator = (req, res) => {
 }
 
 const buildVideo = async (req, res) => {
-  console.log('building video')
   let { selectedWords, textEntry, videoID } = req.body;
   if (!videoURLCache[videoID]) {
     res.status(404).end();
